@@ -30,7 +30,7 @@ class EditContact extends Component {
       return;
     }
 
-    const updContact = {
+    const updateContact = {
       name,
       email,
       phone
