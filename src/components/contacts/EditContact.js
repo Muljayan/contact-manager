@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TextInputGroup from '../layout/TextInputGroup';
 
-class AddContact extends Component {
+class EditContact extends Component {
   state = {
     name: '',
     email: '',
@@ -30,13 +30,15 @@ class AddContact extends Component {
       return;
     }
 
-    const newContact = {
+    const updContact = {
       name,
       email,
       phone
     };
 
-    //// SUBMIT CONTACT ////
+    const { id } = this.props.match.params;
+
+    //// UPDATE CONTACT ////
 
     // Clear State
     this.setState({
@@ -56,7 +58,7 @@ class AddContact extends Component {
 
     return (
       <div className="card mb-3">
-        <div className="card-header">Add Contact</div>
+        <div className="card-header">Edit Contact</div>
         <div className="card-body">
           <form onSubmit={this.onSubmit}>
             <TextInputGroup
@@ -86,7 +88,7 @@ class AddContact extends Component {
             />
             <input
               type="submit"
-              value="Add Contact"
+              value="Update Contact"
               className="btn btn-light btn-block"
             />
           </form>
@@ -96,4 +98,4 @@ class AddContact extends Component {
   }
 }
 
-export default AddContact;
+export default EditContact;
